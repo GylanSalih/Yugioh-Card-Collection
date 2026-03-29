@@ -1,4 +1,3 @@
-```markdown
 # Yu-Gi-Oh! Card Collection Manager 🎴
 
 A modern, responsive web app for managing Yu-Gi-Oh! card collections, building decks, and tracking wishlists.
@@ -78,4 +77,3 @@ Endpoints: `cardinfo.php` · `archetypes.php` · `cardtypes.php` · `races.php` 
 ## License 📄
 
 MIT — see LICENSE for details.
-```
