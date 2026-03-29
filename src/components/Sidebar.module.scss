@@ -1,0 +1,126 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-right: 2px solid #0f3460;
+  transition: width 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+
+  &.open {
+    width: 250px;
+  }
+
+  &.closed {
+    width: 70px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #0f3460;
+    background: rgba(0, 0, 0, 0.2);
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+      white-space: nowrap;
+    }
+
+    .toggleBtn {
+      background: none;
+      border: none;
+      color: #00d4ff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #00f7ff;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+    overflow-y: auto;
+
+    .navItem {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      color: #a8dadc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-weight: 500;
+
+      &:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-color: #00d4ff;
+        color: #00f7ff;
+        transform: translateX(5px);
+      }
+
+      .icon {
+        font-size: 1.3rem;
+        min-width: 24px;
+      }
+
+      .label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .footer {
+    padding: 20px;
+    border-top: 1px solid #0f3460;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    .version {
+      color: #7a8caf;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    &.open {
+      width: 70px;
+
+      .title {
+        display: none;
+      }
+
+      .navItem .label {
+        display: none;
+      }
+    }
+  }
+}
