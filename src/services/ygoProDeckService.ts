@@ -37,6 +37,15 @@ export interface SearchParams {
   offset?: number;
 }
 
+// Erstelle eine API-Instanz mit CORS-Header
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000,
+  headers: {
+    'Accept': 'application/json',
+  },
+});
+
 class YGOProDeckService {
   /**
    * Suche nach Karten
@@ -44,7 +53,7 @@ class YGOProDeckService {
   async searchCards(params: SearchParams): Promise<Card[]> {
     try {
       const queryParams = new URLSearchParams();
-      
+
       if (params.name) queryParams.append('fname', params.name);
       if (params.type) queryParams.append('type', params.type);
       if (params.archetype) queryParams.append('archetype', params.archetype);
@@ -55,13 +64,13 @@ class YGOProDeckService {
       if (params.num) queryParams.append('num', params.num.toString());
       if (params.offset) queryParams.append('offset', params.offset.toString());
 
-      const response = await axios.get(
-        `${API_BASE_URL}/cardinfo.php?${queryParams.toString()}`
+      const response = await apiClient.get(
+        `cardinfo.php?${queryParams.toString()}`
       );
 
-      return response.data.data || [];
+      return response.data?.data || [];
     } catch (error) {
-      console.error('Fehler bei der Suche nach Karten:', error);
+      console.error('Fehler bei der Kartsuche:', error);
       return [];
     }
   }
@@ -71,11 +80,8 @@ class YGOProDeckService {
    */
   async getCard(cardId: number): Promise<Card | null> {
     try {
-      const response = await axios.get(
-        `${API_BASE_URL}/cardinfo.php?id=${cardId}`
-      );
-
-      const cards = response.data.data;
+      const response = await apiClient.get(`cardinfo.php?id=${cardId}`);
+      const cards = response.data?.data;
       return cards && cards.length > 0 ? cards[0] : null;
     } catch (error) {
       console.error('Fehler beim Abrufen der Karte:', error);
@@ -88,7 +94,7 @@ class YGOProDeckService {
    */
   async getArchetypes(): Promise<string[]> {
     try {
-      const response = await axios.get(`${API_BASE_URL}/archetypes.php`);
+      const response = await apiClient.get('archetypes.php');
       return response.data || [];
     } catch (error) {
       console.error('Fehler beim Abrufen der Archetypen:', error);
@@ -101,8 +107,8 @@ class YGOProDeckService {
    */
   async getCardTypes(): Promise<string[]> {
     try {
-      const response = await axios.get(`${API_BASE_URL}/cardtypes.php`);
-      return response.data.data || [];
+      const response = await apiClient.get('cardtypes.php');
+      return response.data?.data || [];
     } catch (error) {
       console.error('Fehler beim Abrufen der Kartentypen:', error);
       return [];
@@ -114,8 +120,8 @@ class YGOProDeckService {
    */
   async getRaces(): Promise<string[]> {
     try {
-      const response = await axios.get(`${API_BASE_URL}/races.php`);
-      return response.data.data || [];
+      const response = await apiClient.get('races.php');
+      return response.data?.data || [];
     } catch (error) {
       console.error('Fehler beim Abrufen der Rassen:', error);
       return [];
@@ -127,8 +133,8 @@ class YGOProDeckService {
    */
   async getAttributes(): Promise<string[]> {
     try {
-      const response = await axios.get(`${API_BASE_URL}/attributes.php`);
-      return response.data.data || [];
+      const response = await apiClient.get('attributes.php');
+      return response.data?.data || [];
     } catch (error) {
       console.error('Fehler beim Abrufen der Attribute:', error);
       return [];
@@ -136,4 +142,5 @@ class YGOProDeckService {
   }
 }
 
-export default new YGOProDeckService();
+const ygoService = new YGOProDeckService();
+export default ygoService;

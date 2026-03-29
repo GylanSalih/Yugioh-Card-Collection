@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styles from './Sidebar.module.scss';
 import {
-  BiMenu,
-  BiX,
-  BiHome,
-  BiCollection,
-  BiDollarCircle,
-  BiBookmark,
-  BiCog,
-} from 'react-icons/bi';
+  Menu,
+  X,
+  Home,
+  Package,
+  BookmarkPlus,
+  Heart,
+  Settings,
+} from 'lucide-react';
 
 interface SidebarProps {
   onNavigate?: (page: string) => void;
@@ -18,11 +18,11 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const menuItems = [
-    { id: 'home', label: 'Home', icon: BiHome },
-    { id: 'collection', label: 'Kollektion', icon: BiCollection },
-    { id: 'decks', label: 'Decks', icon: BiBookmark },
-    { id: 'wishlist', label: 'Wunschliste', icon: BiDollarCircle },
-    { id: 'settings', label: 'Einstellungen', icon: BiCog },
+    { id: 'home', label: 'Home', icon: Home },
+    { id: 'collection', label: 'Kollektion', icon: Package },
+    { id: 'decks', label: 'Decks', icon: BookmarkPlus },
+    { id: 'wishlist', label: 'Wunschliste', icon: Heart },
+    { id: 'settings', label: 'Einstellungen', icon: Settings },
   ];
 
   const handleNavigation = (pageId: string) => {
@@ -34,13 +34,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
   return (
     <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Yu-Gi-Oh</h1>
+        <h1 className={styles.title}>YGO</h1>
         <button
           className={styles.toggleBtn}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle sidebar"
         >
-          {isOpen ? <BiX /> : <BiMenu />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -54,7 +54,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
               onClick={() => handleNavigation(item.id)}
               title={item.label}
             >
-              <IconComponent className={styles.icon} />
+              <IconComponent className={styles.icon} size={20} />
               {isOpen && <span className={styles.label}>{item.label}</span>}
             </button>
           );

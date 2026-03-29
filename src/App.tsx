@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
+import Decks from './pages/Decks';
+import Wishlist from './pages/Wishlist';
+import Settings from './pages/Settings';
 import styles from './App.module.scss';
 
 type PageType = 'home' | 'collection' | 'decks' | 'wishlist' | 'settings';
@@ -20,11 +23,11 @@ function App() {
       case 'collection':
         return <Collection onNavigate={handleNavigation} />;
       case 'decks':
-        return <div className={styles.placeholder}>Decks - In Entwicklung</div>;
+        return <Decks onNavigate={handleNavigation} />;
       case 'wishlist':
-        return <div className={styles.placeholder}>Wunschliste - In Entwicklung</div>;
+        return <Wishlist onNavigate={handleNavigation} />;
       case 'settings':
-        return <div className={styles.placeholder}>Einstellungen - In Entwicklung</div>;
+        return <Settings onNavigate={handleNavigation} />;
       default:
         return <Home onNavigate={handleNavigation} />;
     }
