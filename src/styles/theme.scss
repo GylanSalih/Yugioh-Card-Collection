@@ -1,0 +1,18 @@
+// Theme Mixin für Dark/Light Mode
+@mixin theme {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  html[data-theme='dark'] & {
+    @content;
+  }
+}
+
+@mixin light-mode {
+  html[data-theme='light'] & {
+    @content;
+  }
+}

@@ -1,8 +1,9 @@
 .wishlist {
   padding: 40px;
   min-height: 100vh;
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   .header {
     margin-bottom: 40px;
@@ -11,10 +12,11 @@
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 8px;
+      color: var(--text-primary);
     }
 
     p {
-      color: #666;
+      color: var(--text-secondary);
       font-size: 0.95rem;
     }
   }
@@ -28,7 +30,7 @@
     text-align: center;
 
     .icon {
-      color: #e5e5e5;
+      color: var(--border-light);
       margin-bottom: 24px;
     }
 
@@ -36,11 +38,11 @@
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 8px;
-      color: #1a1a1a;
+      color: var(--text-primary);
     }
 
     p {
-      color: #999;
+      color: var(--text-tertiary);
       font-size: 0.95rem;
     }
   }

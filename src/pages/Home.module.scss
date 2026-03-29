@@ -1,12 +1,13 @@
 .home {
   width: 100%;
   min-height: 100vh;
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   .container {
     max-width: 600px;
@@ -20,14 +21,14 @@
   .badge {
     display: inline-block;
     padding: 6px 14px;
-    background: #f5f5f5;
-    border: 1px solid #e5e5e5;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 32px;
   }
 
@@ -37,11 +38,12 @@
     line-height: 1.2;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
+    color: var(--text-primary);
   }
 
   .description {
     font-size: 1rem;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 48px;
   }
@@ -54,15 +56,15 @@
 
     .feature {
       padding: 20px;
-      border: 1px solid #e5e5e5;
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      background: #fafafa;
+      background: var(--bg-secondary);
       text-align: left;
 
       .featureNumber {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #ccc;
+        color: var(--border-light);
         margin-bottom: 12px;
       }
 
@@ -70,12 +72,12 @@
         font-size: 1rem;
         font-weight: 600;
         margin-bottom: 8px;
-        color: #1a1a1a;
+        color: var(--text-primary);
       }
 
       p {
         font-size: 0.9rem;
-        color: #999;
+        color: var(--text-tertiary);
         margin: 0;
       }
     }
@@ -83,13 +85,13 @@
 
   .newsletter {
     padding: 32px;
-    background: #f5f5f5;
+    background: var(--bg-secondary);
     border-radius: 8px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--border-color);
 
     > p:first-child {
       font-size: 0.95rem;
-      color: #666;
+      color: var(--text-secondary);
       margin-bottom: 16px;
       font-weight: 500;
     }
@@ -102,27 +104,28 @@
       input {
         flex: 1;
         padding: 10px 14px;
-        border: 1px solid #e5e5e5;
+        border: 1px solid var(--border-color);
         border-radius: 6px;
         font-size: 0.9rem;
-        background: #ffffff;
-        color: #1a1a1a;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
         &:disabled {
-          background: #f5f5f5;
-          color: #999;
+          background: var(--bg-tertiary);
+          color: var(--text-tertiary);
           cursor: not-allowed;
         }
 
         &::placeholder {
-          color: #ccc;
+          color: var(--border-color);
         }
       }
 
       button {
         padding: 10px 20px;
-        background: #1a1a1a;
-        color: #ffffff;
+        background: var(--text-primary);
+        color: var(--bg-primary);
         border: none;
         border-radius: 6px;
         font-weight: 600;
@@ -131,11 +134,11 @@
         transition: background 0.2s ease;
 
         &:hover:not(:disabled) {
-          background: #333;
+          opacity: 0.8;
         }
 
         &:disabled {
-          background: #ccc;
+          background: var(--border-light);
           cursor: not-allowed;
         }
       }
@@ -143,7 +146,7 @@
 
     .soon {
       font-size: 0.8rem;
-      color: #999;
+      color: var(--text-tertiary);
       margin: 0;
       font-weight: 500;
     }
