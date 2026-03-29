@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Collection.module.scss';
 import YGOProDeckService, { Card } from '../services/ygoProDeckService';
 
