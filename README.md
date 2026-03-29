@@ -1,4 +1,4 @@
-# Yu-Gi-Oh! Card Collection Manager 🎴
+# Yu-Gi-Oh! Card Collection Manager (SOON) 🎴
 
 A modern, responsive web app for managing Yu-Gi-Oh! card collections, building decks, and tracking wishlists.
 
